@@ -7,9 +7,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ForecastItem from "./ForecastItem";
 import Unit from "@interfaces/Unit";
-import { formatTimeString } from "src/utils/utils";
+import { formatTimeString, needsToUpdate } from "src/utils/utils";
 import ForecastRequest from "@interfaces/requests/ForecastRequest";
 import { State } from "@interfaces/State";
+import LocationName from "@components/shared/LocationName";
 
 const Forecast: React.VFC = () => {
   const position: Position | null = useSelector(
@@ -31,12 +32,8 @@ const Forecast: React.VFC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (
-      position?.lat &&
-      position?.lon &&
-      id !== `${position?.lat},${position?.lon}`
-    ) {
-      getForecast(position.lat, position.lon, unit.type).then(
+    if (needsToUpdate(position, id)) {
+      getForecast(position!.lat, position!.lon, unit.type).then(
         (resp: ForecastRequest) => {
           const daily = resp.daily.slice(0, 5).map((forecastItem: Daily) => {
             return {
@@ -77,10 +74,7 @@ const Forecast: React.VFC = () => {
 
   return (
     <>
-      <Typography variant="h4" component="div" sx={{ marginTop: "20px" }}>
-        {!!position &&
-          `${position.name}, ${position.state} - ${position.country}`}
-      </Typography>
+      <LocationName position={position} />
       <Grid
         container
         direction="row"

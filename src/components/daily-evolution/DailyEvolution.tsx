@@ -1,3 +1,4 @@
+import LocationName from "@components/shared/LocationName";
 import useOpenWeather from "@hooks/useOpenWeather";
 import { Daily, Hourly } from "@interfaces/Forecast";
 import Position from "@interfaces/Position";
@@ -8,7 +9,7 @@ import { Container, Typography } from "@mui/material";
 import { weatherActions } from "@store/weatherSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { formatTimeString } from "src/utils/utils";
+import { formatTimeString, needsToUpdate } from "src/utils/utils";
 import DailyEvolutionGraph from "./DailyEvolutionGraph";
 
 const DailyEvolution: React.VFC = () => {
@@ -31,12 +32,8 @@ const DailyEvolution: React.VFC = () => {
   const { getForecast } = useOpenWeather();
 
   useEffect(() => {
-    if (
-      position?.lat &&
-      position?.lon &&
-      id !== `${position.lat},${position.lon}`
-    ) {
-      getForecast(position.lat, position.lon, unit.type).then(
+    if (needsToUpdate(position, id)) {
+      getForecast(position!.lat, position!.lon, unit.type).then(
         (resp: ForecastRequest) => {
           const daily = resp.daily.slice(0, 5).map((forecastItem: Daily) => {
             return {
@@ -79,10 +76,7 @@ const DailyEvolution: React.VFC = () => {
     <>
       {!!hourly?.length && (
         <Container sx={{ height: "400px", marginTop: "40px" }}>
-          <Typography variant="h4" component="div" sx={{ marginTop: "20px" }}>
-            {!!position &&
-              `${position.name}, ${position.state} - ${position.country}`}
-          </Typography>
+          <LocationName position={position} />
           <DailyEvolutionGraph data={hourly} unit={unit} />
         </Container>
       )}

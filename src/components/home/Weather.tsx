@@ -18,6 +18,8 @@ import { useEffect } from "react";
 import { weatherActions } from "@store/weatherSlice";
 import Unit from "@interfaces/Unit";
 import { State } from "@interfaces/State";
+import { needsToUpdate } from "src/utils/utils";
+import LocationName from "@components/shared/LocationName";
 
 const Weather: React.VFC = () => {
   const {
@@ -38,18 +40,14 @@ const Weather: React.VFC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (
-      position?.lat &&
-      position?.lon &&
-      id !== `${position?.lat},${position?.lon}`
-    ) {
-      getCurrentWeather(position.lat, position.lon, unit.type).then(
+    if (needsToUpdate(position, id)) {
+      getCurrentWeather(position!.lat, position!.lon, unit.type).then(
         (resp: WeatherRequest) => {
           const weatherObject = {
             current: {
               ...resp.main,
             },
-            id: `${position.lat},${position.lon}`,
+            id: `${position!.lat},${position!.lon}`,
           };
 
           dispatch(weatherActions.setCurrentWeather(weatherObject));
@@ -65,13 +63,7 @@ const Weather: React.VFC = () => {
           <Container>
             <Card>
               <CardContent>
-                <Typography
-                  variant="h4"
-                  component="div"
-                  sx={{ margin: "10px" }}
-                >
-                  {`${position.name}, ${position.state} - ${position.country}`}
-                </Typography>
+                <LocationName position={position} />
                 <Divider sx={{ margin: "10px", background: "#cecece" }} />
                 <Box
                   sx={{ flexGrow: 1 }}
