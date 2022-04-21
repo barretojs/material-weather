@@ -1,0 +1,21 @@
+.header {
+  text-align: center;
+}
+
+.weather-container {
+  margin: auto;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.report-container {
+  margin-top: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  .weather-container {
+    margin: auto;
+    margin-top: 40px;
+    width: 100%;
+  }
+}

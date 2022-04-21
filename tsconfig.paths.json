@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"],
+      "@hooks/*": ["src/hooks/*"],
+      "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
+      "@styles/*": ["src/styles/*"],
+      "@store/*": ["src/store/*"],
+      "@interfaces/*": ["src/interfaces/*"]
+    }
+  }
+}
