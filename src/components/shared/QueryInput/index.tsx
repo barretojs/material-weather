@@ -15,6 +15,7 @@ import AppMenu from "./Menu";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PlacesMenu from "./PlacesMenu";
 import Position from "@interfaces/Position";
+import { errorActions } from "@store/errorSlice";
 
 const QueryInput: React.VFC = () => {
   const dispatch = useDispatch();
@@ -63,6 +64,11 @@ const QueryInput: React.VFC = () => {
         .then((resp: Position[]) => {
           setPlaces(resp);
           setAnchorEl(inputRef.current);
+        })
+        .catch((error: Error) => {
+          dispatch(errorActions.setError({
+            message: error.message
+          }));
         })
         .finally(() => {
           setLoading(false);

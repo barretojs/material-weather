@@ -12,11 +12,17 @@ const useOpenWeather = () => {
       appid: process.env.REACT_APP_API_KEY,
     };
 
-    const response = await API.get<WeatherRequest>("/data/2.5/weather", {
-      params: queryParams,
-    });
+    try {
+      const response = await API.get<WeatherRequest>("/data/2.5/weather", {
+        params: queryParams,
+      });
 
-    return response.data;
+      return response.data;
+    } catch (error) {
+      throw new Error(
+        "Error fetching weather data",
+      );
+    }
   };
 
   const searchLocation = async (q: string) => {
@@ -26,11 +32,17 @@ const useOpenWeather = () => {
       appid: process.env.REACT_APP_API_KEY,
     };
 
-    const response = await API.get<Position[]>("/geo/1.0/direct", {
-      params: queryParams,
-    });
+    try {
+      const response = await API.get<Position[]>("/geo/1.0/direct", {
+        params: queryParams,
+      });
 
-    return response.data;
+      return response.data;
+    } catch (error) {
+      throw new Error(
+        "Error searching for location",
+      );
+    }
   };
 
   const getForecast = async (lat: number, lon: number, units: string) => {
@@ -41,11 +53,17 @@ const useOpenWeather = () => {
       appid: process.env.REACT_APP_API_KEY,
     };
 
-    const response = await API.get<ForecastRequest>("/data/2.5/onecall", {
-      params: queryParams,
-    });
+    try {
+      const response = await API.get<ForecastRequest>("/data/2.5/onecall", {
+        params: queryParams,
+      });
 
-    return response.data;
+      return response.data;
+    } catch (error) {
+      throw new Error(
+        "Error fetching forecast data",
+      );
+    }
   };
 
   const getIcon = (icon: string) => {

@@ -20,6 +20,7 @@ import Unit from "@interfaces/Unit";
 import { State } from "@interfaces/State";
 import { needsToUpdate } from "src/utils/utils";
 import LocationName from "@components/shared/LocationName";
+import { errorActions } from "@store/errorSlice";
 
 const Weather: React.VFC = () => {
   const {
@@ -42,7 +43,7 @@ const Weather: React.VFC = () => {
   useEffect(() => {
     if (needsToUpdate(position, id)) {
       getCurrentWeather(position!.lat, position!.lon, unit.type).then(
-        (resp: WeatherRequest) => {
+        (resp) => {
           const weatherObject = {
             current: {
               ...resp.main,
@@ -52,7 +53,11 @@ const Weather: React.VFC = () => {
 
           dispatch(weatherActions.setCurrentWeather(weatherObject));
         }
-      );
+      ).catch((error: Error) => {
+        dispatch(errorActions.setError({
+          message: error.message
+        }));
+      });
     }
   }, [position, unit]);
 
