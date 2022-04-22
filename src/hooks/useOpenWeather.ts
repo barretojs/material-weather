@@ -1,6 +1,7 @@
 import API from "../Axios";
 import WeatherRequest from "@interfaces/requests/WeatherRequest";
 import ForecastRequest from "@interfaces/requests/ForecastRequest";
+import Position from "@interfaces/Position";
 
 const useOpenWeather = () => {
   const getCurrentWeather = async (lat: number, lon: number, units: string) => {
@@ -25,7 +26,7 @@ const useOpenWeather = () => {
       appid: process.env.REACT_APP_API_KEY,
     };
 
-    const response = await API.get("/geo/1.0/direct", {
+    const response = await API.get<Position[]>("/geo/1.0/direct", {
       params: queryParams,
     });
 
