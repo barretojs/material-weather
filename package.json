@@ -18,7 +18,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "lint": "eslint src/**/*.{js,ts,tsx}"
+    "lint": "eslint src/**/*.{js,ts,tsx}",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": [
@@ -40,14 +41,34 @@
   },
   "devDependencies": {
     "@craco/craco": "^6.4.3",
-    "@types/axios": "^0.14.0",
-    "@types/node": "^17.0.23",
-    "craco-alias": "^3.0.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "@types/axios": "^0.14.0",
     "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.23",
     "@types/react": "^17.0.44",
-    "@types/react-dom": "^17.0.15"
+    "@types/react-dom": "^17.0.15",
+    "craco-alias": "^3.0.1",
+    "ts-jest": "^27.1.4"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx|js|jsx)$": "ts-jest"
+    },
+    "rootDir": "src",
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.ts"
+    ],
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "@mui/styled-engine": "<rootDir>/../node_modules/@mui/styled-engine-sc",
+      "@hooks/(.*)": "<rootDir>/hooks/$1",
+      "@components/(.*)": "<rootDir>/components/$1",
+      "@pages/(.*)": "<rootDir>/pages/$1",
+      "@styles/(.*)": "<rootDir>/styles/$1",
+      "@store/(.*)": "<rootDir>/store/$1",
+      "@interfaces/(.*)": "<rootDir>/interfaces/$1"
+    }
   }
 }
