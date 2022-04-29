@@ -17,7 +17,7 @@ type Props = {
   unit: Unit;
 };
 
-const DailyEvolutionGraph: React.VFC<Props> = ({ data, unit }) => {
+const DailyEvolutionGraph: React.FC<Props> = ({ data, unit }) => {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart

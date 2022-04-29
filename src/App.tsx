@@ -7,7 +7,7 @@ import AppRoutes from "./routes";
 import QueryInput from "@components/shared/QueryInput";
 import FABMenu from "@components/shared/FABMenu";
 
-const App: React.VFC = () => {
+const App: React.FC = () => {
   return (
     <div className="App">
       <Header />

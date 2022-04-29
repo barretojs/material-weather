@@ -1,6 +1,6 @@
 import Weather from "@components/home/Weather";
 
-const CurrentWeatherPage: React.VFC = () => {
+const CurrentWeatherPage: React.FC = () => {
   return (
     <>
       <Weather />

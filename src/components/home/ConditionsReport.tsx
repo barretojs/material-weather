@@ -10,7 +10,7 @@ type Props = {
   weather: Weather | null;
 };
 
-const ConditionsReport: React.VFC<Props> = ({ weather }) => {
+const ConditionsReport: React.FC<Props> = ({ weather }) => {
   return (
     <Container>
       <Grid container direction="row" justifyContent="space-around" spacing={2}>

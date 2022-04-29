@@ -5,11 +5,15 @@ type Props = {
   position: Position | null;
 };
 
-const LocationName: React.VFC<Props> = ({ position }) => {
+const LocationName: React.FC<Props> = ({ position }) => {
   return (
-    <Typography variant="h4" component="div" sx={{ margin: "10px" }}>
-      {`${position?.name}, ${position?.state} - ${position?.country}`}
-    </Typography>
+    <>
+      {!!position && (
+        <Typography variant="h4" component="div" sx={{ margin: "10px" }}>
+          {`${position?.name}, ${position?.state} - ${position?.country}`}
+        </Typography>
+      )}
+    </>
   );
 };
 

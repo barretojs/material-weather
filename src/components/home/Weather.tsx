@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardContent,
-  Container,
-  Divider,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, Container, Divider } from "@mui/material";
 import { Box } from "@mui/system";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "@styles/Home.module.css";
@@ -21,7 +15,7 @@ import { State } from "@interfaces/State";
 import { needsToUpdate } from "src/utils/utils";
 import LocationName from "@components/shared/LocationName";
 
-const Weather: React.VFC = () => {
+const Weather: React.FC = () => {
   const {
     current,
     id,
