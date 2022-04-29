@@ -18,10 +18,11 @@
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "baseUrl": ".",
+    "isolatedModules": true,
     "resolveJsonModule": true,
     "skipLibCheck": false
   },
   "include": [
     "src/**/*"
-  ],
+  ]
 }
