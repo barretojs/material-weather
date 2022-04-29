@@ -13,7 +13,7 @@ type Props = {
   weather: Weather | null;
 };
 
-const TemperatureReport: React.VFC<Props> = ({ weather }) => {
+const TemperatureReport: React.FC<Props> = ({ weather }) => {
   const unit: Unit = useSelector((state: State) => state.unitReducer.unit);
 
   return (

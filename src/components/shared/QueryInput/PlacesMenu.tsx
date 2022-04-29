@@ -9,7 +9,7 @@ type Props = {
   handleClickPlace: (place: Position) => void;
 };
 
-const PlacesMenu: React.VFC<Props> = ({
+const PlacesMenu: React.FC<Props> = ({
   menuAnchor,
   open,
   handleClose,

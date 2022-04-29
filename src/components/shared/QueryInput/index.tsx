@@ -16,7 +16,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PlacesMenu from "./PlacesMenu";
 import Position from "@interfaces/Position";
 
-const QueryInput: React.VFC = () => {
+const QueryInput: React.FC = () => {
   const dispatch = useDispatch();
 
   const [query, setQuery] = useState<string>("");

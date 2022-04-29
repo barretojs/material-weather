@@ -8,7 +8,7 @@ type Props = {
   forecast: Daily;
 };
 
-const ForecastItem: React.VFC<Props> = ({ forecast }) => {
+const ForecastItem: React.FC<Props> = ({ forecast }) => {
   const { getIcon } = useOpenWeather();
 
   return (
