@@ -49,6 +49,7 @@
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",
     "craco-alias": "^3.0.1",
+    "identity-obj-proxy": "^3.0.0",
     "react-scripts": "^4.0.3",
     "ts-jest": "^26.0.0",
     "typescript": "^4.6.4"
@@ -63,6 +64,7 @@
     ],
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
+      "\\.module.(css|less|scss|sass)$": "identity-obj-proxy",
       "@mui/styled-engine": "<rootDir>/../node_modules/@mui/styled-engine-sc",
       "@hooks/(.*)": "<rootDir>/hooks/$1",
       "@components/(.*)": "<rootDir>/components/$1",
