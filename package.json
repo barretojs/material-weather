@@ -40,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "@bahmutov/add-typescript-to-cypress": "^2.1.2",
     "@craco/craco": "^6.4.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
@@ -49,9 +50,10 @@
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",
     "craco-alias": "^3.0.1",
+    "cypress": "^9.6.0",
     "identity-obj-proxy": "^3.0.0",
-    "react-scripts": "^4.0.3",
-    "ts-jest": "^26.0.0",
+    "react-scripts": "^5.0.1",
+    "ts-jest": "^27.1.4",
     "typescript": "^4.6.4"
   },
   "jest": {
