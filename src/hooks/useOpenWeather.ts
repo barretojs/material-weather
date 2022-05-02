@@ -19,7 +19,7 @@ const useOpenWeather = () => {
     return response.data;
   };
 
-  const searchLocation = async (q: string) => {
+  const searchLocation = async (q: string | undefined) => {
     const queryParams = {
       q,
       limit: 5,
@@ -48,8 +48,8 @@ const useOpenWeather = () => {
     return response.data;
   };
 
-  const getIcon = (icon: string) => {
-    return `http://openweathermap.org/img/w/${icon}.png`;
+  const getIcon = (icon: string | undefined) => {
+    return icon ? `http://openweathermap.org/img/w/${icon}.png` : undefined;
   };
 
   return { getCurrentWeather, searchLocation, getForecast, getIcon };
