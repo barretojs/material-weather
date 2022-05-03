@@ -6,9 +6,9 @@ import Position from "@interfaces/Position";
 const useOpenWeather = () => {
   const getCurrentWeather = async (lat: number, lon: number, units: string) => {
     const queryParams = {
+      units,
       lat,
       lon,
-      units,
       appid: process.env.REACT_APP_API_KEY,
     };
 
@@ -35,9 +35,9 @@ const useOpenWeather = () => {
 
   const getForecast = async (lat: number, lon: number, units: string) => {
     const queryParams = {
+      units,
       lat,
       lon,
-      units,
       appid: process.env.REACT_APP_API_KEY,
     };
 
