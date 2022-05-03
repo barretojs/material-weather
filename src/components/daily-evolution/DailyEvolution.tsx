@@ -5,14 +5,14 @@ import Position from "@interfaces/Position";
 import ForecastRequest from "@interfaces/requests/ForecastRequest";
 import { State } from "@interfaces/State";
 import Unit from "@interfaces/Unit";
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import { weatherActions } from "@store/weatherSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { formatTimeString, needsToUpdate } from "src/utils/utils";
 import DailyEvolutionGraph from "./DailyEvolutionGraph";
 
-const DailyEvolution: React.VFC = () => {
+const DailyEvolution: React.FC = () => {
   const position: Position | null = useSelector(
     (state: State) => state.positionReducer.position
   );

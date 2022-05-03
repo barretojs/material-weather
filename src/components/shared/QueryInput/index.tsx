@@ -17,7 +17,7 @@ import PlacesMenu from "./PlacesMenu";
 import Position from "@interfaces/Position";
 import { errorActions } from "@store/errorSlice";
 
-const QueryInput: React.VFC = () => {
+const QueryInput: React.FC = () => {
   const dispatch = useDispatch();
 
   const [query, setQuery] = useState<string>("");
@@ -101,7 +101,7 @@ const QueryInput: React.VFC = () => {
           ref={inputRef}
         />
         {!loading && !!places.length && (
-          <IconButton onClick={openPlaces}>
+          <IconButton data-cy="placesDropdown" onClick={openPlaces}>
             <KeyboardArrowDownIcon />
           </IconButton>
         )}

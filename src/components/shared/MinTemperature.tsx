@@ -9,7 +9,7 @@ type Props = {
   minTemperature: number | undefined;
 };
 
-const MinTemperature: React.VFC<Props> = ({ minTemperature }) => {
+const MinTemperature: React.FC<Props> = ({ minTemperature }) => {
   const unit: Unit = useSelector((state: State) => state.unitReducer.unit);
 
   return (
@@ -22,14 +22,18 @@ const MinTemperature: React.VFC<Props> = ({ minTemperature }) => {
         alignItems="center"
         sx={{ color: "#006BCE" }}
       >
-        <Grid item xs={6} md={6} textAlign="end">
-          <AcUnitIcon sx={{ padding: 2 }} />
-        </Grid>
-        <Grid item xs={6} md={6} textAlign="start">
-          <Typography variant="h6" component="div">
-            {!!minTemperature && Math.round(minTemperature)} {unit.unit}
-          </Typography>
-        </Grid>
+        {!!minTemperature && (
+          <>
+            <Grid item xs={6} md={6} textAlign="end">
+              <AcUnitIcon sx={{ padding: 2 }} />
+            </Grid>
+            <Grid item xs={6} md={6} textAlign="start">
+              <Typography variant="h6" component="div">
+                {Math.round(minTemperature)} {unit.unit}
+              </Typography>
+            </Grid>
+          </>
+        )}
       </Grid>
     </Grid>
   );

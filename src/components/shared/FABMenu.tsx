@@ -37,6 +37,7 @@ const FABMenu = () => {
   return (
     <>
       <Fab
+        data-cy="fab"
         color="primary"
         aria-label="change unit"
         sx={{ position: "fixed", bottom: "2%", right: "2%" }}
@@ -61,10 +62,16 @@ const FABMenu = () => {
           horizontal: "right",
         }}
       >
-        <MenuItem onClick={() => handleClose({ type: "metric", unit: "ºC" })}>
+        <MenuItem
+          data-cy="metric"
+          onClick={() => handleClose({ type: "metric", unit: "ºC" })}
+        >
           Celsius (ºC)
         </MenuItem>
-        <MenuItem onClick={() => handleClose({ type: "imperial", unit: "ºF" })}>
+        <MenuItem
+          data-cy="imperial"
+          onClick={() => handleClose({ type: "imperial", unit: "ºF" })}
+        >
           Fahrenheit (ºF)
         </MenuItem>
       </Menu>

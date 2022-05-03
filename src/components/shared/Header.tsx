@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 import classes from "@styles/Home.module.css";
 
-const Header: React.VFC = () => {
+const Header: React.FC = () => {
   return (
     <>
       <Box className={classes.header}>

@@ -1,6 +1,6 @@
 import Forecast from "@components/forecast/Forecast";
 
-const ForecastPage: React.VFC = () => {
+const ForecastPage: React.FC = () => {
   return (
     <div>
       <Forecast />

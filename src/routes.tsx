@@ -3,7 +3,7 @@ import DailyEvolution from "@pages/DailyEvolution";
 import ForecastPage from "@pages/Forecast";
 import { Route, Routes } from "react-router-dom";
 
-const AppRoutes: React.VFC = () => {
+const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<CurrentWeatherPage />} />

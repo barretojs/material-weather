@@ -1,7 +1,7 @@
 import useOpenWeather from "@hooks/useOpenWeather";
 import Position from "@interfaces/Position";
 import { Daily, Hourly } from "@interfaces/Forecast";
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { weatherActions } from "@store/weatherSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,7 @@ import ForecastRequest from "@interfaces/requests/ForecastRequest";
 import { State } from "@interfaces/State";
 import LocationName from "@components/shared/LocationName";
 
-const Forecast: React.VFC = () => {
+const Forecast: React.FC = () => {
   const position: Position | null = useSelector(
     (state: State) => state.positionReducer.position
   );

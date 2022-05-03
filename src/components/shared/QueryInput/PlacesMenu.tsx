@@ -9,7 +9,7 @@ type Props = {
   handleClickPlace: (place: Position) => void;
 };
 
-const PlacesMenu: React.VFC<Props> = ({
+const PlacesMenu: React.FC<Props> = ({
   menuAnchor,
   open,
   handleClose,
@@ -30,9 +30,10 @@ const PlacesMenu: React.VFC<Props> = ({
       }}
       disableRestoreFocus={true}
     >
-      {places.map((place: Position) => {
+      {places.map((place: Position, ix: number) => {
         return (
           <MenuItem
+            data-cy={`place${ix}`}
             onClick={() => handleClickPlace(place)}
             key={`${place.lat},${place.lon}`}
           >

@@ -1,0 +1,44 @@
+{
+  "coord": {
+    "lon": -49.3804,
+    "lat": -20.8126
+  },
+  "weather": [
+    {
+      "id": 803,
+      "main": "Clouds",
+      "description": "broken clouds",
+      "icon": "04n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 25.8,
+    "feels_like": 25.45,
+    "temp_min": 25.8,
+    "temp_max": 25.8,
+    "pressure": 1012,
+    "humidity": 39,
+    "sea_level": 1012,
+    "grnd_level": 957
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 1.3,
+    "deg": 123,
+    "gust": 1.36
+  },
+  "clouds": {
+    "all": 81
+  },
+  "dt": 1651532654,
+  "sys": {
+    "country": "BR",
+    "sunrise": 1651484086,
+    "sunset": 1651524845
+  },
+  "timezone": -10800,
+  "id": 3448639,
+  "name": "São José do Rio Preto",
+  "cod": 200
+}

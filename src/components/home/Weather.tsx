@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardContent,
-  Container,
-  Divider,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, Container, Divider } from "@mui/material";
 import { Box } from "@mui/system";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "@styles/Home.module.css";
@@ -22,7 +16,7 @@ import { needsToUpdate } from "src/utils/utils";
 import LocationName from "@components/shared/LocationName";
 import { errorActions } from "@store/errorSlice";
 
-const Weather: React.VFC = () => {
+const Weather: React.FC = () => {
   const {
     current,
     id,
@@ -66,7 +60,7 @@ const Weather: React.VFC = () => {
       {!!position && (
         <Box className={classes["weather-container"]}>
           <Container>
-            <Card>
+            <Card data-cy="currentWeatherCard">
               <CardContent>
                 <LocationName position={position} />
                 <Divider sx={{ margin: "10px", background: "#cecece" }} />

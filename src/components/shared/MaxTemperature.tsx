@@ -9,7 +9,7 @@ type Props = {
   maxTemperature: number | undefined;
 };
 
-const MaxTemperature: React.VFC<Props> = ({ maxTemperature }) => {
+const MaxTemperature: React.FC<Props> = ({ maxTemperature }) => {
   const unit: Unit = useSelector((state: State) => state.unitReducer.unit);
 
   return (
@@ -21,14 +21,18 @@ const MaxTemperature: React.VFC<Props> = ({ maxTemperature }) => {
       alignItems="center"
       sx={{ color: "#e25822" }}
     >
-      <Grid item xs={6} md={6} textAlign="end">
-        <LocalFireDepartmentIcon sx={{ padding: 2 }} />
-      </Grid>
-      <Grid item xs={6} md={6} textAlign="start">
-        <Typography variant="h6" component="div">
-          {!!maxTemperature && Math.round(maxTemperature)} {unit.unit}
-        </Typography>
-      </Grid>
+      {!!maxTemperature && (
+        <>
+          <Grid item xs={6} md={6} textAlign="end">
+            <LocalFireDepartmentIcon sx={{ padding: 2 }} />
+          </Grid>
+          <Grid item xs={6} md={6} textAlign="start">
+            <Typography variant="h6" component="div">
+              {Math.round(maxTemperature)} {unit.unit}
+            </Typography>
+          </Grid>
+        </>
+      )}
     </Grid>
   );
 };
