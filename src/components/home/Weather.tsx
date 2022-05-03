@@ -55,7 +55,7 @@ const Weather: React.FC = () => {
       {!!position && (
         <Box className={classes["weather-container"]}>
           <Container>
-            <Card>
+            <Card data-cy="currentWeatherCard">
               <CardContent>
                 <LocationName position={position} />
                 <Divider sx={{ margin: "10px", background: "#cecece" }} />

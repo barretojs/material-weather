@@ -95,7 +95,7 @@ const QueryInput: React.FC = () => {
           ref={inputRef}
         />
         {!loading && !!places.length && (
-          <IconButton onClick={openPlaces}>
+          <IconButton data-cy="placesDropdown" onClick={openPlaces}>
             <KeyboardArrowDownIcon />
           </IconButton>
         )}

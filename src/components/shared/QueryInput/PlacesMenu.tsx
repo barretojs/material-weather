@@ -30,9 +30,10 @@ const PlacesMenu: React.FC<Props> = ({
       }}
       disableRestoreFocus={true}
     >
-      {places.map((place: Position) => {
+      {places.map((place: Position, ix: number) => {
         return (
           <MenuItem
+            data-cy={`place${ix}`}
             onClick={() => handleClickPlace(place)}
             key={`${place.lat},${place.lon}`}
           >

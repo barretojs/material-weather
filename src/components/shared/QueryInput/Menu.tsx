@@ -25,7 +25,7 @@ const AppMenu = () => {
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          "aria-labelledby": "basic-button",
+          "aria-labelledby": "menu-button",
         }}
       >
         <MenuItem onClick={handleClose} component={Link} to={"/"}>
